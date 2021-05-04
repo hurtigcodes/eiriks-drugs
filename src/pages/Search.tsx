@@ -290,6 +290,7 @@ const Search = ({ scope }: SearchProps) => {
                       branch={branch}
                       suggestCallback={setConceptIdSubstance}
                       onChange={handleSubstanceChange}
+                      autoComplete="off"
                     />
                     <section aria-labelledby="results">
                       <ul className="list-group">
