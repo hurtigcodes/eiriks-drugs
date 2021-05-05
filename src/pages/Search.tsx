@@ -208,27 +208,27 @@ const Search = ({ scope }: SearchProps) => {
     (host || hosts[0]) +
     "/" +
     (branch || defaultBranch) +
-    "/concepts?ecl=%3C%3C763158003%3A762949000%3D(" +
+    "/concepts?ecl=<<763158003:762949000=(" +
     conceptIdSubstance +
-    "%20OR%20(%3C%3C105590001%3A738774007%3D" +
+    " OR (<<105590001:738774007=" +
     conceptIdSubstance +
-    "))%2C411116001%3D((%3C%3C736542009%3A736475003%3D" +
+    ")),411116001=((<<736542009:736475003=" +
     rel +
-    "%2C736472000%3D" +
+    ",736472000=" +
     adm +
-    "%2C736474004%3D" +
+    ",736474004=" +
     intendedSite +
-    "%2C736476002%3D" +
+    ",736476002=" +
     form +
-    ")%20OR%20%20(%3C%3C736542009%3A736475003%3D" +
+    ") OR (<<736542009:736475003=" +
     rel +
-    "%2C736472000%3D" +
+    ",736472000=" +
     adm +
-    "%2C736474004%3D" +
+    ",736474004=" +
     intendedSite +
-    "%2C736476002%3D" +
+    ",736476002=" +
     form +
-    "%2C736473005%3D736853009))";
+    ",736473005=736853009))";
   const fetchCommercial =
     (host || hosts[0]) +
     "/browser/" +
@@ -418,6 +418,7 @@ const Search = ({ scope }: SearchProps) => {
                 genericUrl={fetchGenericUrl}
                 commercialUrl={fetchCommercial}
               />
+              <p>{fetchGenericUrl}</p>
             </form>
           )}
         </div>
