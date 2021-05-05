@@ -23,6 +23,7 @@ import {
 type SearchProps = {
   scope: string;
 };
+
 const useSearch = () => {
   // Handle the input text state
   const [query, setQuery] = useQueryParam("q", StringParam);
@@ -208,7 +209,12 @@ const Search = ({ scope }: SearchProps) => {
   } else {
     doseFormModificator = "*";
   }
-
+  let doseFormModificator2: string;
+  if (form === "739006009") {
+    doseFormModificator2 = "385055001";
+  } else {
+    doseFormModificator2 = "*";
+  }
   const branches = branchRequest.result || [];
   const { items = [] } = searchRequest.result || {};
   const fetchGenericUrl =
@@ -234,7 +240,7 @@ const Search = ({ scope }: SearchProps) => {
     ",736474004=" +
     intendedSite +
     ",736476002=" +
-    form +
+    doseFormModificator2 +
     ",736473005= " +
     doseFormModificator +
     "))";
@@ -424,9 +430,11 @@ const Search = ({ scope }: SearchProps) => {
               </div>
               {/*<input type="submit" value="Søk etter legemiddel" />*/}
               <DrugListComponent
+                isDisabled={!rel || !intendedSite || !adm || !form}
                 genericUrl={fetchGenericUrl}
                 commercialUrl={fetchCommercial}
               />
+
               <p>{fetchGenericUrl}</p>
             </form>
           )}

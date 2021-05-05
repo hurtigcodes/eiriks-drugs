@@ -6,12 +6,12 @@ export const DrugListComponent = class DrugListComponent extends React.Component
 
     this.state = {
       response: "",
+      showSpinner: true,
     };
   }
 
   getDrugs = () => {
     if (this.props.genericUrl) {
-      console.log(this.props.genericUrl);
       fetch(this.props.genericUrl, {
         method: "GET",
       })
@@ -47,7 +47,7 @@ export const DrugListComponent = class DrugListComponent extends React.Component
     return commercialItems.map((item, index) => (
       <li key={index}>
         <div>
-          Commercial drug <span>{index + 1}</span>:{" "}
+          <strong>Commercial drug</strong> <span>{index + 1}</span>:{" "}
           <span>
             {item.additionalFields.NavnFormStyrke}{" "}
             <a
@@ -56,11 +56,12 @@ export const DrugListComponent = class DrugListComponent extends React.Component
                 item.additionalFields.ATCKode +
                 "&f=Han;MtI;Vir;ATC;Var;Mar;Mid;Avr;gen;par;&pane=0"
               }
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Legemiddelsøk
             </a>
           </span>{" "}
-          Legemiddelsøk
         </div>
       </li>
     ));
@@ -69,14 +70,13 @@ export const DrugListComponent = class DrugListComponent extends React.Component
   renderDrugs() {
     if (this.state.response) {
       let json = JSON.parse(this.state.response);
-      console.log(json);
 
       if (Array.isArray(json.items)) {
         return json.items.map((item, index) => (
           <li key={index}>
             <div>
-              Generic drug <span>{index + 1}</span>: <span>{item.pt.term}</span>{" "}
-              <span>{item.conceptId}</span>
+              <strong>Generic drug</strong> <span>{index + 1}</span>:{" "}
+              <span>{item.pt.term}</span> <span>{item.conceptId}</span>
             </div>
             {Array.isArray(item.commercialItems) ? (
               <ul>{this.renderCommercial(item.commercialItems)}</ul>
@@ -94,6 +94,7 @@ export const DrugListComponent = class DrugListComponent extends React.Component
         <div>
           <button onClick={this.getDrugs}>Søk etter legemiddel</button>
         </div>
+
         <div>
           <ul>{this.renderDrugs()}</ul>
         </div>
