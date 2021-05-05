@@ -1,7 +1,7 @@
 export const defaultBranch = "MAIN/SNOMEDCT-NO";
 
 export const hosts = [
-  //"https://test.terminologi.ehelse.no",
+  "https://test.terminologi.ehelse.no",
   "https://qa.terminologi.ehelse.no",
   "https://terminologi.ehelse.no",
 ];

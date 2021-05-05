@@ -202,6 +202,13 @@ const Search = ({ scope }: SearchProps) => {
     setRel(event.target.value);
   };
 
+  let doseFormModificator: string;
+  if (form === "739006009") {
+    doseFormModificator = "736853009";
+  } else {
+    doseFormModificator = "*";
+  }
+
   const branches = branchRequest.result || [];
   const { items = [] } = searchRequest.result || {};
   const fetchGenericUrl =
@@ -228,7 +235,9 @@ const Search = ({ scope }: SearchProps) => {
     intendedSite +
     ",736476002=" +
     form +
-    ",736473005=736853009))";
+    ",736473005= " +
+    doseFormModificator +
+    "))";
   const fetchCommercial =
     (host || hosts[0]) +
     "/browser/" +
