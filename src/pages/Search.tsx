@@ -209,11 +209,11 @@ const Search = ({ scope }: SearchProps) => {
   } else {
     doseFormModificator = "*";
   }
-  let doseFormModificator2: string;
+  let doseFormModificator2 = form;
   if (form === "739006009") {
     doseFormModificator2 = "739005008";
   } else {
-    doseFormModificator2 = "385055001";
+    doseFormModificator2 = form;
   }
   const branches = branchRequest.result || [];
   const { items = [] } = searchRequest.result || {};
