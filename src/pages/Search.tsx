@@ -434,8 +434,6 @@ const Search = ({ scope }: SearchProps) => {
                 genericUrl={fetchGenericUrl}
                 commercialUrl={fetchCommercial}
               />
-
-              <p>{fetchGenericUrl}</p>
             </form>
           )}
         </div>
