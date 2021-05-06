@@ -30,7 +30,7 @@ export const fetchConceptIdSite = (
 ) =>
   "/concepts?ecl=<<736479009:R736474004=(*:R411116001=(<<763158003:762949000=(" +
   conceptIdSubstance +
-  " OR (<<261217004:738774007=" +
+  " OR (<<105590001:738774007=" +
   conceptIdSubstance +
   "))))";
 
@@ -41,7 +41,7 @@ export const fetchRelId = (
 ) =>
   "/concepts?ecl=%3C%3C736480007%3A%20R736475003%3D(*%3AR411116001%3D(%3C%3C763158003%3A762949000%3D(" +
   conceptIdSubstance +
-  "%20OR%20(%3C%3C261217004%3A738774007%3D" +
+  "%20OR%20(%3C%3C105590001%3A738774007%3D" +
   conceptIdSubstance +
   "))))";
 
@@ -50,6 +50,6 @@ export const fetchAdmId = (
 ) =>
   "/concepts?ecl=%3C%3C736665006%3A%20R736472000%3D(*%3AR411116001%3D(%3C%3C763158003%3A762949000%3D(" +
   conceptIdSubstance +
-  "%20OR%20(%3C%3C261217004%3A738774007%3D" +
+  "%20OR%20(%3C%3C105590001%3A738774007%3D" +
   conceptIdSubstance +
   "))))";

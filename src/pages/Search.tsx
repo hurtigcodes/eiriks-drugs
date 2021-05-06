@@ -211,9 +211,9 @@ const Search = ({ scope }: SearchProps) => {
   }
   let doseFormModificator2: string;
   if (form === "739006009") {
-    doseFormModificator2 = "385055001";
+    doseFormModificator2 = "739005008";
   } else {
-    doseFormModificator2 = "*";
+    doseFormModificator2 = "385055001";
   }
   const branches = branchRequest.result || [];
   const { items = [] } = searchRequest.result || {};
